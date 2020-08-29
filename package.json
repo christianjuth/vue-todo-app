@@ -12,7 +12,7 @@
     "@xstate/fsm": "^1.5.1",
     "@xstate/vue": "^0.3.0",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0-rc.9"
+    "vue": "^3.0.0-0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",

@@ -8531,8 +8531,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^3.0.0-rc.9:
-  name "@vue/composition-api"
+vue@^3.0.0-0:
   version "3.0.0-rc.9"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.0-rc.9.tgz#8c54e6168625e3533f1f764ad3fa89235b01afb3"
   integrity sha512-bimvpl5q/sKy1dAOE+KNX9T3p6Qq8kuNRmOYwaxtacI91ksjS7nVGse1FANhTL+XTQgl8+ySrd3f67xWi26nxw==
