@@ -5,7 +5,7 @@
       :class="{ checkboxSelected: checked }"
     />
     <p 
-      class='noPadding'
+      class='noPadding text'
       :class="{ textSelected: checked }"
     >
       {{ title }}
@@ -38,7 +38,11 @@ export default defineComponent({
 
 .checkbox {
   height: 30px;
+  min-height: 30px;
+  max-height: 30px;
   width: 30px;
+  min-width: 30px;
+  max-width: 30px;
   margin-right: calc(var(--spacing) * 2);
   border: 1px solid var(--text-color);
   border-radius: var(--roundness);
@@ -46,6 +50,12 @@ export default defineComponent({
 
 .checkboxSelected {
   background-color: var(--text-color);
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .textSelected {

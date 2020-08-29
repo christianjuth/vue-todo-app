@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <Index/>
-  </div>
+  <Index/>
 </template>
 
 <script lang="ts">
@@ -52,9 +50,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-}
-
-#app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

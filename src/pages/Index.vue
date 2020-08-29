@@ -22,7 +22,7 @@
 
         <div 
           class="addButton"
-          :class="{ rotate45: state.value === 'editing' }"
+          :class="{ buttonEditing: state.value === 'editing' }"
           @click="edit"
         >
           +
@@ -103,12 +103,13 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   user-select: none;
 }
 
 .page {
-  width: 500px
+  width: 100%;
+  max-width: calc(600px + 8vw);
+  padding: calc(var(--spacing) + 4vw);
 }
 
 .titleRow {
@@ -116,12 +117,13 @@ export default defineComponent({
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: calc(var(--spacing) * 2);
 }
 
 .addButton {
   height: 35px;
   width: 35px;
-  line-height: 30px;
+  line-height: 31px;
   text-align: center;
   font-size: 2rem;
   background-color: var(--text-color);
@@ -131,17 +133,21 @@ export default defineComponent({
   transition: transform 0.2s;
 }
 
-.rotate45 {
+.buttonEditing {
   transform: rotate(-45deg);
+  /* THIS IS A HACK: input blur handles send, so we will disable the button */
+  pointer-events: none;
 }
 
 .title,
 .input {
+  display: flex;
+  min-width: 0;
+  flex: 1;
   font-size: 2rem;
   line-height: 2.5rem;
   margin: 0;
   padding: 10px 0;
-  margin-bottom: 10px;
   border: none;
   outline: none;
   background-color: transparent;
@@ -150,6 +156,10 @@ export default defineComponent({
 
 .title {
   cursor: pointer;
+}
+
+.input {
+  padding-right: calc(var(--spacing) * 2);
 }
 
 .hide {
