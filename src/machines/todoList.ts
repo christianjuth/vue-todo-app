@@ -19,7 +19,8 @@ type MachineEvent =
   | { type: 'HYDRATE'; items: { title: string; completed: boolean }[] }
   | { type: 'TOGGLE'; id: number }
   | { type: 'EDIT' }
-  | { type: 'SUBMIT'; title: string };
+  | { type: 'CANCLE_EDIT' }
+  | { type: 'SUBMIT' };
 
 
 export const todoListMachine = createMachine<MachineContext, MachineEvent, MachineState>({
@@ -51,7 +52,7 @@ export const todoListMachine = createMachine<MachineContext, MachineEvent, Machi
     },
     editing: {
       on: {
-        EDIT: {
+        CANCLE_EDIT: {
           target: 'idle'
         },
         SUBMIT: {

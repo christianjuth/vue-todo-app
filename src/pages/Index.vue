@@ -15,7 +15,7 @@
           :class="{ hide: state.value !== 'editing' }"
           placeholder="Title..."
           v-on:keyup.enter="submit"
-          v-on:blur="edit"
+          v-on:blur="cancleEdit"
           v-model="state.context.inputValue"
           ref="input"
         />
@@ -62,6 +62,13 @@ export default defineComponent({
       }]
     })
   },
+  updated: function() {
+    if (this.state.value === 'editing') {
+      this.$refs.input.focus();
+    } else {
+      this.$refs.input.blur();
+    }
+  },
   methods: {
     handleClick(id: number) {
       this.send({
@@ -73,19 +80,17 @@ export default defineComponent({
       this.send({
         type: 'EDIT'
       });
-      if (this.state.value === 'editing') {
-        console.log('focus')
-        setTimeout(() => {
-          this.$refs.input.focus()
-        }, 50)
-      }
+    },
+    cancleEdit() {
+      this.send({
+        type: 'CANCLE_EDIT'
+      });
     },
     submit(e: Event) {
       e.preventDefault();
       this.send({
-        type: 'SUBMIT',
-        title: 'TEST TEST'
-      })
+        type: 'SUBMIT'
+      });
     }
   }
 });
@@ -99,6 +104,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  user-select: none;
 }
 
 .page {
@@ -140,6 +146,10 @@ export default defineComponent({
   outline: none;
   background-color: transparent;
   color: var(--text-color);
+}
+
+.title {
+  cursor: pointer;
 }
 
 .hide {
